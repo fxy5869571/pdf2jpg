@@ -12,6 +12,10 @@ RUN apk add ca-certificates
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tencent.com/g' /etc/apk/repositories \
 && apk add --update --no-cache nodejs npm
 
+
+# 更新软件包列表并安装 Poppler
+RUN apk update && apk add poppler-utils
+
 # # 指定工作目录
 WORKDIR /app
 
